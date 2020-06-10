@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>vsam</name>
-  <version>0.1</version>
+  <version>0.0.0</version>
   <description>Package containing material for visual servoing angular momentum control</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
