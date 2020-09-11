@@ -8,13 +8,22 @@ stack:
     #- ["LeftFoot", "RightFoot"]
     #- ["LeftArm", "RightArm"]
     #- ["LeftArm"]
-    - ["Torso"]
+    #- ["Torso"]
+    - ["xtion"]
     #- ["FloatingBase"]
     #- ["Torso", "LeftFootLocal", "RightFootLocal", "RightArmLocal", "LeftArmLocal"]
     #- ["FloatingBase", "LeftFootLocal", "RightFootLocal", "RightArmLocal", "LeftArmLocal"]
     - ["Postural"]
 
 constraints: ["JointLimits", "VelocityLimits", "Com", "AngularMomentum"]
+
+xtion:
+    lib_name: "libCartesioVisualServoing.so"
+    type: "VisualServoing"
+    distal_link: "camera_link"
+    lambda: 0.01
+    feature_type: "vpFeaturePoint"
+    number_of_features: 4
 
 FloatingBase:
     type: "Cartesian"

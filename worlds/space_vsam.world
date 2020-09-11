@@ -35,10 +35,9 @@
 	      	<elevation>0</elevation>
 	      	<heading_deg>0</heading_deg>
     	</spherical_coordinates>
-	<model name='iss'>
+	<!--model name='iss'>
 		<static>1</static>
-      		<!--pose frame=''>0 0 4.6 3.14 -0 3.14</pose-->
-		<pose frame=''>6 6.0 4.6 3.14 -0 1.57</pose>
+      		<pose frame=''>6 6.0 4.6 3.14 -0 1.57</pose>
       		<link name='body'>
         		<inertial>
           			<mass>0.1</mass>
@@ -82,10 +81,15 @@
 			<enable_wind>0</enable_wind>
 			<kinematic>0</kinematic>
 		</link>
-    	</model>
+    	</model-->
+        <include>
+		<uri>model://visual_pattern</uri>
+		<pose frame=''>4.95 1. 0.98 0. 0. -3.1415</pose>
+        </include>
 	<include>
 		<uri>model://coman</uri>
-		<pose frame=''>0 0 0 0 0 0.5</pose>
+		<pose frame=''>2.05 0 0 0 0 0.5</pose>
+                <!--pose frame=''>2.05 0 0 0 0 0.</pose--> 
 	</include>	
 </world>
 </sdf>
