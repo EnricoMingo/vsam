@@ -8,7 +8,7 @@ stack:
     #- ["LeftFoot", "RightFoot"]
     #- ["LeftArm", "RightArm"]
     #- ["LeftArm"]
-    #- ["Torso"]
+    - ["Torso"]
     - ["xtion"]
     #- ["FloatingBase"]
     #- ["Torso", "LeftFootLocal", "RightFootLocal", "RightArmLocal", "LeftArmLocal"]
@@ -35,6 +35,7 @@ Torso:
     type: "Cartesian"
     name: "torso"
     distal_link: "torso"
+    indices: [0, 1, 2, 3 ,4]
     lambda: 0.1
 
 AngularMomentum:
