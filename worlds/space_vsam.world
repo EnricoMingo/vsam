@@ -26,6 +26,9 @@
       		<background>0.7 0.7 0.7 1</background>
       		<shadows>1</shadows>
                 <grid>0</grid>
+			<!-- sky>
+			  <material>Gazebo/Gazebo/CloudySky</material>
+			</sky -->
     	</scene>
     	<wind/>
     	<spherical_coordinates>
@@ -37,7 +40,7 @@
     	</spherical_coordinates>
 	<model name='iss'>
 		<static>1</static>
-      		<pose frame=''>6 6.0 4.6 3.14 -0 1.57</pose>
+      		<pose frame=''>5.6 6.8 4.6 3.14 -0 1.57</pose>
       		<link name='body'>
         		<inertial>
           			<mass>0.1</mass>
@@ -84,11 +87,11 @@
     	</model>
         <include>
 		<uri>model://visual_pattern</uri>
-		<pose frame=''>4.95 1. 0.98 0. 0. -3.1415</pose>
+		<pose frame=''>4.5 1. 1. 0. -3.1415</pose>
         </include>
 	<include>
 		<uri>model://coman</uri>
-		<pose frame=''>2.05 0 0 0 0 0.5</pose>
+		<pose frame=''>2.05 1 0 0 0 -0.45</pose>
                 <!--pose frame=''>2.05 0 0 0 0 0.</pose--> 
 	</include>	
 </world>
