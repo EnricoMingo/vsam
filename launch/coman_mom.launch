@@ -25,6 +25,15 @@
             output="screen"/>
 
 
+    <node pkg="opensot_visual_servoing" type="image_processing_node" name="image_processing_node">
+	<remap from="camera_info" to="camera/rgb/camera_info"/>
+        <remap from="image_raw" to="camera/rgb/image_raw"/>
+        <remap from="image_processing/visual_features" to="cartesian/visual_servoing_camera_link/features"/>
+        <remap from="desired_visual_features" to="cartesian/visual_servoing_camera_link/reference_features"/>
+    </node> 
+
+
+
 
     
 </launch>
