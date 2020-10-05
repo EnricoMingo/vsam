@@ -1,6 +1,6 @@
 solver_options:
     regularization: 1e-3
-    back_end: "osqp"
+    back_end: "qpoases"
 
 stack:
     #- ["AngularMomentum", "Com"]
@@ -21,7 +21,7 @@ xtion:
     lib_name: "libCartesioVisualServoing.so"
     type: "VisualServoing"
     distal_link: "camera_link"
-    lambda: 0.01
+    lambda: 0.0005
     feature_type: "vpFeaturePoint"
     number_of_features: 4
 
