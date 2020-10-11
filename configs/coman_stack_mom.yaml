@@ -3,16 +3,8 @@ solver_options:
     back_end: "qpoases"
 
 stack:
-    #- ["AngularMomentum", "Com"]
-    #- ["Com"]
-    #- ["LeftFoot", "RightFoot"]
-    #- ["LeftArm", "RightArm"]
-    #- ["LeftArm"]
     - ["Torso"]
     - ["xtion"]
-    #- ["FloatingBase"]
-    #- ["Torso", "LeftFootLocal", "RightFootLocal", "RightArmLocal", "LeftArmLocal"]
-    #- ["FloatingBase", "LeftFootLocal", "RightFootLocal", "RightArmLocal", "LeftArmLocal"]
     - ["Postural"]
 
 constraints: ["JointLimits", "VelocityLimits", "Com", "AngularMomentum"]
@@ -25,12 +17,6 @@ xtion:
     feature_type: "vpFeaturePoint"
     number_of_features: 4
 
-FloatingBase:
-    type: "Cartesian"
-    name: "floating_base"
-    distal_link: "base_link"
-    lambda: 0.1
-
 Torso:
     type: "Cartesian"
     name: "torso"
@@ -41,53 +27,6 @@ Torso:
 AngularMomentum:
     lib_name: "libCartesioAngularMomentumAddon.so"
     type: "AngularMomentum"
-
-LeftFootLocal:
-    type: "Cartesian"
-    name: "left_foot"
-    distal_link: "l_sole"
-    base_link: "base_link"
-
-RightFootLocal:
-    type: "Cartesian"
-    name: "right_foot"
-    distal_link: "r_sole"
-    base_link: "base_link"
-
-LeftFoot:
-    type: "Cartesian"
-    name: "left_foot"
-    distal_link: "l_sole"
-
-RightFoot:
-    type: "Cartesian"
-    name: "right_foot"
-    distal_link: "r_sole"
-
-LeftArmLocal:
-    type: "Cartesian"
-    name: "left_hand"
-    distal_link: "LSoftHand"
-    base_link: "torso"
-
-RightArmLocal:
-    type: "Cartesian"
-    name: "right_hand"
-    distal_link: "RSoftHand"
-    base_link: "torso"
-
-LeftArm:
-    type: "Cartesian"
-    name: "left_hand"
-    distal_link: "LSoftHand"
-    lambda: 0.1
-
-RightArm:
-    type: "Cartesian"
-    name: "right_hand"
-    distal_link: "RSoftHand"
-    base_link: "base_link"
-    lambda: 0.1
     
 Postural:
     type: "Postural"
