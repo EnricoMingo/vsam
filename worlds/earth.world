@@ -1,0 +1,60 @@
+<sdf version='1.6'>
+	<world name='default'>
+        <gui>
+		<camera name="user_camera">
+			<pose>-2.645 3.136 3.102 0 0.38 -0.188</pose>
+		</camera>
+	</gui>
+	<light name='sun' type='directional'>
+      		<cast_shadows>1</cast_shadows>
+      		<pose frame=''>0 0 10 0 -0 0</pose>
+	      	<diffuse>0.8 0.8 0.8 1</diffuse>
+	      	<specular>0.2 0.2 0.2 1</specular>
+	      	<attenuation>
+			<range>1000</range>
+			<constant>0.9</constant>
+			<linear>0.01</linear>
+			<quadratic>0.001</quadratic>
+	      	</attenuation>
+      		<direction>-0.5 0.1 -0.9</direction>
+    	</light>
+    	<gravity>0 0 -9.81</gravity>
+    	<magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    	<atmosphere type='adiabatic'/>
+    	<physics name='default_physics' default='0' type='ode'>
+      		<max_step_size>0.001</max_step_size>
+      		<real_time_factor>1</real_time_factor>
+      		<real_time_update_rate>1000</real_time_update_rate>
+	</physics>
+    	<scene>
+      		<ambient>1. 1. 1. 1</ambient>
+		<background>1. 1. 1. 1</background>
+      		<shadows>1</shadows>
+                <grid>0</grid>
+			<!-- sky>
+			  <material>Gazebo/Gazebo/CloudySky</material>
+			</sky -->
+    	</scene>
+    	<wind/>
+    	<spherical_coordinates>
+      		<surface_model>EARTH_WGS84</surface_model>
+      		<latitude_deg>0</latitude_deg>
+      		<longitude_deg>0</longitude_deg>
+	      	<elevation>0</elevation>
+	      	<heading_deg>0</heading_deg>
+    	</spherical_coordinates>
+        <include>
+		<uri>model://ground_plane</uri>
+		<pose frame=''>0. 0. 0. 0. 0. 0.</pose>
+        </include>
+	<include>
+		<uri>model://visual_pattern</uri>
+		<pose frame=''>4.5 1. 1. 0. -3.1415</pose>
+        </include>
+	<include>
+		<uri>model://coman</uri>
+		<!-- pose frame=''>2.05 1 0 0 0 -0.45</pose -->
+                <pose frame=''>2.05 1. 0.5 0 0 -0.45</pose> 
+	</include>	
+</world>
+</sdf>
