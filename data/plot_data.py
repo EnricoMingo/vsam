@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[113]:
 
 
 from __future__ import print_function
@@ -15,7 +15,7 @@ import glob
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-get_ipython().run_line_magic('matplotlib', 'qt')
+get_ipython().magic(u'matplotlib qt')
 
 plt.close('all')
 
@@ -46,8 +46,8 @@ data_freq = 1000 # Hz
 # Cut data
 
 idxs = np.array([])
-for k in range(0,len(dq)):
-    idx = np.argmax(np.abs(dq[k,:])>1e-10)
+for k in range(0,6):
+    idx = np.argmax(np.abs(dq[k,:])>1e-3)
     idxs = np.append(idxs,idx)
 
 ini = int(np.min(idxs))-1
@@ -156,7 +156,7 @@ print(command_sys)
 _ = os.system(command_sys)
 
 
-# In[14]:
+# In[114]:
 
 
 # VISUAL ERROR
@@ -198,7 +198,7 @@ print(command_sys)
 os.system(command_sys)
 
 
-# In[5]:
+# In[115]:
 
 
 from scipy.spatial.transform import Rotation as R
@@ -210,6 +210,8 @@ file_to_load = max(list_of_files, key=os.path.getctime)
 
 print('Loading file: ', file_to_load)
 
+data_freq_gz = 1000
+
 data_gazebo = loadmat(file_to_load)
 
 fb_pos_gz = data_gazebo['gazebo_fb_pos']
@@ -217,13 +219,26 @@ fb_vel_gz = data_gazebo['gazebo_fb_vel']
 fb_rot_gz = data_gazebo['gazebo_fb_rot']
 com_pos_gz = data_gazebo['gazebo_com_pos']
 
-ini_gz = 15340
-fin_gz = len(fb_pos_gz[0])
+fin_gz = len(fb_vel_gz[0,:])
+
+idxs = np.array([])
+for k in range(0,6):
+    idx = np.argmax(np.abs(fb_vel_gz[0,:])>1e-6)
+    idxs = np.append(idxs,idx)
+
+ini_gz_zero = int(np.min(idxs)) + 3 * data_freq_gz
+
+print(ini_gz_zero)
+
+idxs = np.array([])
+for k in range(0,6):
+    idx = np.argmax(np.abs(fb_vel_gz[0,ini_gz_zero:fin_gz])>1e-6) + ini_gz_zero
+    idxs = np.append(idxs,idx)
+
+ini_gz = int(np.min(idxs)) - 1
 
 print('Orginal opensot data long '+str(len(fb_pos_gz[0]))+' samples')
 print('Cutting opensot data from '+str(ini_gz)+' to '+str(fin_gz))
-
-data_freq_gz = 1000
 
 time_vec_gz = np.arange(0,fin_gz-ini_gz,1) / data_freq_gz
 
@@ -266,18 +281,18 @@ print('Done.')
 #com_gz = data_gazebo['gazebo_com_pos']
 
 
-# In[6]:
+# In[110]:
 
 
 plt.close('all')
-plt.plot(fb_pos_vec0_gz[0,:])
+plt.plot(fb_vel_gz[0,:])
 #plt.plot(fb_pos_gz[1,:])
 #plt.plot(fb_pos_gz[2,:])
 
 #plt.plot(q[0,:])
 
 
-# In[7]:
+# In[116]:
 
 
 # CONFIGURATION
@@ -392,7 +407,7 @@ print(command_sys)
 os.system(command_sys)
 
 
-# In[49]:
+# In[96]:
 
 
 # COM AND CENTROIDAL MOMENTUM 
@@ -526,17 +541,12 @@ print(command_sys)
 os.system(command_sys)
 
 
-# In[37]:
+# In[55]:
 
 
-offset = com_pos_gz[:,0] - com[:,0]
-print(offset)
-
-
-# In[39]:
-
-
-com[0,0]
+plt.close('all')
+plt.plot(fb_vel_gz[0,:])
+plt.show()
 
 
 # In[38]:
