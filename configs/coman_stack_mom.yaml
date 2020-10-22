@@ -3,7 +3,7 @@ solver_options:
     back_end: "qpoases"
 
 stack:
-    - ["Torso"]
+    - ["camera_link"]
     - ["xtion"]
     - ["Postural"]
 
@@ -13,14 +13,14 @@ xtion:
     lib_name: "libCartesioVisualServoing.so"
     type: "VisualServoing"
     distal_link: "camera_link"
-    lambda: 0.0005
+    lambda: 0.001
     feature_type: "vpFeaturePoint"
     number_of_features: 4
 
-Torso:
+camera_link:
     type: "Cartesian"
-    name: "torso"
-    distal_link: "torso"
+    name: "camera_link"
+    distal_link: "camera_link"
     indices: [0, 1, 2]
     lambda: 0.1
 
@@ -43,12 +43,11 @@ Postural:
 Com:
     type: "Com"
     lambda: 0.
-    #indices: [0, 1]
-    #weight: 10
+#    indices: [0, 1]
+#    weight: 10
 
 JointLimits:
     type: "JointLimits"
-
 
 VelocityLimits:
     type: "VelocityLimits"
