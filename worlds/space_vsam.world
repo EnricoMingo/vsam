@@ -2,7 +2,8 @@
 	<world name='default'>
         <gui>
 		<camera name="user_camera">
-			<pose>-2.645 3.136 3.102 0 0.38 -0.188</pose>
+			<!--pose>-2.645 3.136 3.102 0 0.38 -0.188</pose-->
+			<pose>6.55 3.56 1.71 0 0.3 -2.0</pose>
 		</camera>
 	</gui>
 	<light name='sun' type='directional'>
@@ -92,12 +93,27 @@
     	</model>
         <include>
 		<uri>model://visual_pattern</uri>
-		<pose frame=''>4.5 1. 1. 0. -3.1415</pose>
+		<!--pose frame=''>4.5 1. 1. 0. -3.1415</pose-->
+		<pose frame=''>4.4 -0.13 1.20 3.1415 0. 0.</pose>
         </include>
 	<include>
 		<uri>model://coman</uri>
-		<pose frame=''>2.05 1 0 0 0 -0.45</pose>
-                <!--pose frame=''>2.05 0 0 0 0 0.</pose--> 
+		<pose frame=''>6.25 0.75 0.75 0 0 3.1415</pose>
+		<!--pose frame=''>2.05 1 0 0 0 -0.45</pose-->
+        <!--pose frame=''>2.05 0 0 0 0 0.</pose--> 
 	</include>	
+	<light name='user_point_light_0' type='point'>
+      <pose frame=''>5.74682 0.966313 2.3 0 -0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0.0 0.0 0.0 1</specular>
+      <attenuation>
+        <range>30</range>
+        <constant>0.3</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+    </light>
 </world>
 </sdf>
