@@ -1,10 +1,10 @@
 XBotCore:
-  config_path: "robots/iit-coman-ros-pkg/coman_config/coman.yaml"
+  config_path: "/home/toto/catkin_ws/src/iit-coman-ros-pkg/coman_config/coman.yaml"
 
 XBotInterface:
-  urdf_path: "robots/iit-coman-ros-pkg/coman_urdf/urdf/coman.urdf"
-  srdf_path: "external/vsam/srdf/coman.srdf"
-  joint_map_path: "robots/iit-coman-ros-pkg/coman_config/coman_joint_map.yaml"
+  urdf_path: "/home/toto/catkin_ws/src/iit-coman-ros-pkg/coman_urdf/urdf/coman.urdf"
+  srdf_path: "/home/toto/catkin_ws/src/vsam/srdf/coman.srdf"
+  joint_map_path: "/home/toto/catkin_ws/src/iit-coman-ros-pkg/coman_config/coman_joint_map.yaml"
 
 RobotInterface:
   framework_name: "ROS"
