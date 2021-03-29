@@ -6,10 +6,10 @@
         textfile="$(find coman_urdf)/urdf/coman.urdf"/>
     
     <param name="robot_description_semantic"
-        textfile="$(find vsam)/srdf/coman_space.srdf"/>
+        textfile="$(find vsam)/srdf/coman.srdf"/>
     
     <param name="cartesian/problem_description" 
-        textfile="$(find vsam)/configs/coman_stack_mom_rg.yaml"/>
+        textfile="$(find vsam)/configs/coman_stack_vs_rg.yaml"/>
     
     <include file="$(find cartesian_interface)/launch/cartesio.launch">
         <arg name="rate" value="1000.0"/>
@@ -27,12 +27,13 @@
 	
 	</node> 
 
-
 	 <node pkg="ReGoVis" type="reference_governor.py" name="reference_governor">
-	
+
 	 <remap from="reference_governor/reference_features" to="cartesian/visual_servoing_camera_link/desired_features"/>
 	 </node>
 
-
+	<rosparam param="regovis_MPC_sampling_time">0.1</rosparam>
+	<rosparam param="regovis_preview_window_size">10</rosparam> 
+	<rosparam param="image_processing/depth">4</rosparam>
     
 </launch>

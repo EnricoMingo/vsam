@@ -4,8 +4,8 @@ solver_options:
 
 stack:
     - ["Com"]
-    - ["xtion", "RightArm", "LeftArm"]
-    - ["Postural"]
+    - ["xtion"] # , "RightArm", "LeftArm"]
+#    - ["Postural"]
 
 constraints: ["JointLimits", "VelocityLimits", "LeftFoot", "RightFoot"]
 
@@ -13,7 +13,7 @@ xtion:
     lib_name: "libCartesioVisualServoing.so"
     type: "VisualServoing"
     distal_link: "camera_link"
-    lambda: 0.0005
+    lambda:  0.002 # compare 0.002 and 0.0001
     feature_type: "vpFeaturePoint"
     number_of_features: 4
 
