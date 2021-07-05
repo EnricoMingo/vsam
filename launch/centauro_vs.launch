@@ -1,0 +1,61 @@
+<launch>
+<!--
+
+    <arg name="prefix" default=""/>
+    <arg name="gui" default="false"/>
+    
+    <param name="robot_description" 
+        textfile="$(find centauro_urdf)/urdf/centauro.urdf"/>
+    
+    <param name="robot_description_semantic"
+        textfile="$(find centauro_srfd)/srdf/centauro.srdf"/>
+    
+    <param name="cartesian/problem_description" 
+        textfile="$(find vsam)/configs/centauro_stack.yaml"/>
+    
+    <include file="$(find cartesian_interface)/launch/cartesio.launch">
+        <arg name="rate" value="1000.0"/>
+        <arg name="prefix" value="$(arg prefix)"/>
+    </include>
+
+    <node if="$(arg gui)"
+            type="rviz"
+            name="rviz"
+            pkg="rviz"
+            args="-d $(find cartesian_interface)/examples/rviz/disp.rviz"/>
+            output="screen"/>
+
+
+    <node pkg="opensot_visual_servoing" type="image_processing_node" name="image_processing_node">
+	<remap from="camera_info" to="camera/rgb/camera_info"/>
+        <remap from="image_raw" to="camera/rgb/image_raw"/>
+        <remap from="image_processing/visual_features" to="cartesian/visual_servoing_camera_link/features"/>
+        <remap from="desired_visual_features" to="cartesian/visual_servoing_camera_link/reference_features"/>
+    </node> 
+    
+ -->
+    
+    <!-- SIMULATION -->
+    <arg name="gazebo" default="true"/>
+    
+    <group if="$(eval arg('gazebo') ==1)">
+    	
+    	<arg name="extra_gz_model_path" default=""/>
+    
+    	<env name="GAZEBO_MODEL_PATH" value="$(arg extra_gz_model_path):$(find vsam)/models:$(optenv GAZEBO_MODEL_PATH)"/>
+    	
+
+	
+  	<include file="$(find centauro_gazebo)/launch/centauro_world.launch" pass_all_args="true">
+	  	<arg name="world_name" default="$(find vsam)/worlds/pattern_earth.world"/>
+		<arg name="verbose" default="true"/>
+  	</include>
+  	
+  		
+  	
+    </group>
+
+
+
+    
+</launch>
