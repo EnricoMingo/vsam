@@ -41,13 +41,13 @@ Wheel_HR:
 LeftArm:
     type: "Cartesian"
     distal_link: "arm1_8"
-    base_link: "world"
+    base_link: "pelvis"
     lambda: 0.1
 
 RightArm:
     type: "Cartesian"
     distal_link: "arm2_8"
-    base_link: "world"
+    base_link: "pelvis"
     lambda: 0.1
     
 Postural:
@@ -58,6 +58,7 @@ xtion:
     lib_name: "libCartesioVisualServoing.so"
     type: "VisualServoing"
     distal_link: "D435i_camera_color_optical_frame"
-    lambda: 0.0005
+    lambda: 0.001
     feature_type: "vpFeaturePoint"
     number_of_features: 4
+    

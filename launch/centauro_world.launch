@@ -1,0 +1,26 @@
+<launch>
+
+    <!-- SIMULATION -->
+    <arg name="gazebo" default="true"/>
+    
+    <group if="$(eval arg('gazebo') ==1)">
+    	
+    	<arg name="extra_gz_model_path" default=""/>
+    
+    	<env name="GAZEBO_MODEL_PATH" value="$(arg extra_gz_model_path):$(find vsam)/models:$(optenv GAZEBO_MODEL_PATH)"/>
+    	
+
+	
+  	<include file="$(find centauro_gazebo)/launch/centauro_world.launch" pass_all_args="true">
+	  	<arg name="world_name" default="$(find vsam)/worlds/pattern_earth.world"/>
+		<arg name="verbose" default="true"/>
+  	</include>
+  	
+  		
+  	
+    </group>
+
+
+
+    
+</launch>
