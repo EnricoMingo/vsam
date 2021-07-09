@@ -91,7 +91,7 @@
         
         
         <include>
-		<uri>model://visual_pattern</uri>
+		<uri>model://visual_pattern_small</uri>
 		<pose frame=''>1.515219 -0.665199 0.181768 3.141593 -0.715539 3.141593</pose>
         </include>	
 </world>
