@@ -4,11 +4,17 @@ import rospy
 from copy import copy
 from opensot_visual_servoing.msg import VisualFeatures
 
+desired_features_x = [0.0345, 0.174, 0.201, 0.060]
+desired_features_y = [-0.330, -0.352, -0.218, -0.195]
+
 def callback(data):
     refs = copy(data)
 
+    i = 0
     for point in refs.features:
-        point.x = point.x - 0.6
+        point.x = desired_features_x[i]
+        point.y = desired_features_y[i]
+        i += 1
 
     pub = rospy.Publisher("/cartesian/visual_servoing_D435i_camera_color_optical_frame/desired_features", VisualFeatures, queue_size=10)
     rate = rospy.Rate(10)  # 10hz

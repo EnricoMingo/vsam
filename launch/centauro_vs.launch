@@ -16,6 +16,7 @@
     <include file="$(find cartesian_interface)/launch/cartesio.launch">
         <arg name="rate" value="1000.0"/>
         <arg name="prefix" value="$(arg prefix)"/>
+        <arg name="markers" value="false"/>
     </include>
 
     <node pkg="opensot_visual_servoing" type="image_processing_node" name="image_processing_node">
