@@ -58,7 +58,7 @@ xtion:
     lib_name: "libCartesioVisualServoing.so"
     type: "VisualServoing"
     distal_link: "D435i_camera_color_optical_frame"
-    lambda: 0.001
+    lambda: 0.002
     feature_type: "vpFeaturePoint"
     number_of_features: 4
     

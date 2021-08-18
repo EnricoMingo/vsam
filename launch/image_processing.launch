@@ -2,8 +2,8 @@
 
 <node pkg="opensot_visual_servoing" type="image_processing_node" name="image_processing_node">
     	<param name="depth" value="1.5"/>
-	<remap from="camera_info" to="/webcam/camera_info"/>
-        <remap from="image_raw" to="/webcam/image_raw"/>
+	<remap from="camera_info" to="/camera/color/camera_info"/>
+        <remap from="image_raw" to="/camera/color/image_raw"/>
         <remap from="desired_visual_features" to="image_processing/visual_features"/>
 </node> 
 
