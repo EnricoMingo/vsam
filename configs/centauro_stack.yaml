@@ -19,24 +19,28 @@ Wheel_FL:
     distal_link: "wheel_1"
     base_link: "world"
     lambda: 0.1
+    indices: [0, 1, 2]
 
 Wheel_FR:
     type: "Cartesian"
     distal_link: "wheel_2"
     base_link: "world"
     lambda: 0.1
+    indices: [0, 1, 2]
 
 Wheel_HL:
     type: "Cartesian"
     distal_link: "wheel_3"
     base_link: "world"
     lambda: 0.1
+    indices: [0, 1, 2]
 
 Wheel_HR:
     type: "Cartesian"
     distal_link: "wheel_4"
     base_link: "world"
     lambda: 0.1
+    indices: [0, 1, 2]
     
 LeftArm:
     type: "Cartesian"
